@@ -1475,3 +1475,55 @@ body {
     }
 }
 
+/* --- Global Legibility Update --- */
+
+/* Base font size — 12pt is roughly 16px */
+body {
+    font-size: 16px;
+}
+
+/* Small UI labels (icons, taskbar, etc.) */
+.icon-label,
+.taskbar-label,
+.taskbar-icon,
+.card-date,
+.read-more,
+.toc-link {
+    font-size: 14px; /* was 10–14px */
+}
+
+/* Normal body text */
+p,
+#blog-post-content p,
+.terminal,
+.blog-card p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Medium text (blog titles, card titles, sections) */
+.blog-card h2,
+#blog-post-content h3,
+.address-label {
+    font-size: 20px;
+}
+
+/* Large titles */
+.blog-header h1,
+#blog-post-content h1 {
+    font-size: 32px;
+}
+
+/* Buttons / UI elements */
+.start-button,
+.taskbar-item,
+.window-title,
+.ie-btn {
+    font-size: 16px;
+}
+
+/* Tiny system-style details — ensure at least 14px */
+.window-btn {
+    font-size: 14px;
+}
+
