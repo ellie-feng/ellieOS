@@ -524,3 +524,113 @@ document.addEventListener('DOMContentLoaded', () => {
     window.closeBlogPost = () => ellieOS.closeBlogPost();
     window.openCaseStudy = (studyId) => ellieOS.openCaseStudy(studyId);
 });
+
+// Scroll spy for TOC
+function initTOC() {
+    const sections = document.querySelectorAll('.resume-section[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const resumeContainer = document.querySelector('.resume-container');
+    const windowContent = resumeContainer?.closest('.window-content');
+    
+    // Smooth scroll for TOC links
+    tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection && windowContent) {
+                const targetPosition = targetSection.offsetTop - windowContent.offsetTop;
+                windowContent.scrollTo({ top: targetPosition - 20, behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // Highlight active section on scroll
+    if (windowContent) {
+        windowContent.addEventListener('scroll', () => {
+            const scrollPosition = windowContent.scrollTop + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - windowContent.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.toc-link[href="#${section.id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        });
+    }
+}
+
+function scrollToTop() {
+    const resumeContainer = document.querySelector('.resume-container');
+    const windowContent = resumeContainer?.closest('.window-content');
+    if (windowContent) {
+        windowContent.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+// Initialize on load
+setTimeout(initTOC, 100);
+
+// Scroll spy for TOC
+function initTOC() {
+    const sections = document.querySelectorAll('.cs-section[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const caseStudyFull = document.querySelector('.case-study-full');
+    const windowContent = caseStudyFull?.closest('.window-content');
+    
+    // Smooth scroll for TOC links
+    tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection && windowContent) {
+                const targetPosition = targetSection.offsetTop - windowContent.offsetTop;
+                windowContent.scrollTo({ top: targetPosition - 20, behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // Highlight active section on scroll
+    if (windowContent) {
+        windowContent.addEventListener('scroll', () => {
+            const scrollPosition = windowContent.scrollTop + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - windowContent.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.toc-link[href="#${section.id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        });
+    }
+}
+
+function scrollToTop() {
+    const caseStudyFull = document.querySelector('.case-study-full');
+    const windowContent = caseStudyFull?.closest('.window-content');
+    if (windowContent) {
+        windowContent.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+// Initialize on load
+setTimeout(initTOC, 100);
+
+// Navigation function
+function navigateBack() {
+    if (window.history && window.history.length > 1) {
+        // Trigger the back navigation in the window manager
+        const event = new CustomEvent('navigateBack');
+        window.dispatchEvent(event);
+    }
+}
+
