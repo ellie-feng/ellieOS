@@ -762,9 +762,9 @@ body {
 
 /* Back to Top Button */
 .back-to-top {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
+    position: sticky;
+    bottom: 20px;
+    margin: 20px auto 0;
     width: 48px;
     height: 48px;
     background: linear-gradient(135deg, var(--highlight-blue), var(--highlight-light-blue));

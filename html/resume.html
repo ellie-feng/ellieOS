@@ -2,23 +2,27 @@
 
 <div class="resume-container">
     <!-- Table of Contents -->
-    <aside class="toc-container">
-        <div class="toc-title">Contents</div>
-        <ul class="toc-list" id="resume-toc">
-            <li class="toc-item"><a href="#objective" class="toc-link">Objective</a></li>
-            <li class="toc-item"><a href="#education" class="toc-link">Education</a></li>
-            <li class="toc-item"><a href="#experience" class="toc-link">Experience</a></li>
-            <li class="toc-item"><a href="#projects" class="toc-link">Projects</a></li>
-            <li class="toc-item"><a href="#volunteering" class="toc-link">Volunteering</a></li>
-            <li class="toc-item"><a href="#skills" class="toc-link">Skills</a></li>
-        </ul>
+    <aside class="toc-sidebar">
+        <div class="toc-container">
+            <div class="toc-title">Contents</div>
+            <ul class="toc-list" id="resume-toc">
+                <li class="toc-item"><a href="#objective" class="toc-link">Objective</a></li>
+                <li class="toc-item"><a href="#education" class="toc-link">Education</a></li>
+                <li class="toc-item"><a href="#experience" class="toc-link">Experience</a></li>
+                <li class="toc-item"><a href="#projects" class="toc-link">Projects</a></li>
+                <li class="toc-item"><a href="#volunteering" class="toc-link">Volunteering</a></li>
+                <li class="toc-item"><a href="#skills" class="toc-link">Skills</a></li>
+            </ul>
+        </div>
+        <!-- Back to Top Button -->
+        <div class="back-to-top" onclick="scrollToTop()"></div>
     </aside>
 
     <!-- Main Resume Content -->
     <div class="resume-content">
         <div class="resume-header">
             <h1>Ellie Feng</h1>
-            <p class="resume-contact">ellief5288@gmail.com</p>
+            <p class="resume-contact">ellief5288@gmail.com | Melbourne, VIC, AU</p>
         </div>
 
         <section id="objective" class="resume-section">
@@ -44,7 +48,7 @@
             <div class="resume-item">
                 <div class="resume-item-header">
                     <h3>Tutor</h3>
-                    <span class="resume-date">Jul 2025 – Current</span>
+                    <span class="resume-date">Jul 2025 to Current</span>
                 </div>
                 <p class="resume-title">The University of Queensland – COMP1100 Introduction to Software Innovation</p>
                 <p class="resume-skills"><strong>Skills:</strong> Miro, MS Teams, MS Excel, Github</p>
@@ -58,7 +62,7 @@
             <div class="resume-item">
                 <div class="resume-item-header">
                     <h3>Retail Assistant</h3>
-                    <span class="resume-date">Dec 2022 – Current</span>
+                    <span class="resume-date">Dec 2022 to Current</span>
                 </div>
                 <p class="resume-title">JB Hi-Fi Oxley</p>
                 <ul class="resume-bullets">
@@ -72,7 +76,7 @@
             <div class="resume-item">
                 <div class="resume-item-header">
                     <h3>Founding User Experience Designer</h3>
-                    <span class="resume-date">Oct 2024 – Aug 2025</span>
+                    <span class="resume-date">Oct 2024 to Aug 2025</span>
                 </div>
                 <p class="resume-title">doko</p>
                 <p class="resume-detail">「doko」 is a social media app that makes it easy for you to rate and share content you've enjoyed with your friends.</p>
@@ -101,7 +105,7 @@
             <div class="resume-item">
                 <div class="resume-item-header">
                     <h3>UQ Ladies in Technology – Corporate Executive</h3>
-                    <span class="resume-date">Nov 2025 - Current</span>
+                    <span class="resume-date">Nov 2025 to Current</span>
                 </div>
                 <p class="resume-detail">Organised and executed corporate events: including workshops, networking sessions, mock interviews, and office visits. Whilst communicating and building relationships with professionals and sponsors from tech companies.</p>
             </div>
@@ -109,7 +113,7 @@
             <div class="resume-item">
                 <div class="resume-item-header">
                     <h3>UQ Racing – Business Team Member</h3>
-                    <span class="resume-date">Oct 2025 - Current</span>
+                    <span class="resume-date">Oct 2025 to Current</span>
                 </div>
                 <p class="resume-detail">UQ Racing is Australia's leading student FSAE team, engineering world-class electric race cars and driving industry partnerships. Member of UQ Racing's business team, managing sponsor relations, marketing content, and competition presentations in a fast-paced, team-driven environment.</p>
             </div>
@@ -117,7 +121,7 @@
             <div class="resume-item">
                 <div class="resume-item-header">
                     <h3>Notion Campus Leader</h3>
-                    <span class="resume-date">Jul 2025 - Current</span>
+                    <span class="resume-date">Jul 2025 to Current</span>
                 </div>
                 <p class="resume-detail">Notion- a software company providing an all-in-one workspace for notes, tasks, and collaboration. Led Notion workshops and campus initiatives by coordinating tasks, leveraging team strengths, and ensuring smooth execution while strengthening communication and problem-solving skills.</p>
             </div>
@@ -125,7 +129,7 @@
             <div class="resume-item">
                 <div class="resume-item-header">
                     <h3>Women in Computing Leader</h3>
-                    <span class="resume-date">Oct 2024 - Current</span>
+                    <span class="resume-date">Oct 2024 to Current</span>
                 </div>
                 <p class="resume-title">University of Queensland</p>
                 <p class="resume-detail">Represented UQ at outreach and recruitment events, inspiring young women to pursue technology while developing public speaking, communication, and mentorship skills.</p>
@@ -146,9 +150,6 @@
             <p class="resume-references">References can be made available on request.</p>
         </section>
     </div>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" onclick="scrollToTop()"></div>
 </div>
 
 <style>
@@ -265,10 +266,13 @@
         flex-direction: column;
     }
     
-    .toc-container {
+    .toc-sidebar {
         position: static;
         width: 100%;
-        max-height: none;
+    }
+    
+    .toc-container {
+        width: 100%;
     }
 }
 </style>

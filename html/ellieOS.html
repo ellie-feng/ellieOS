@@ -2,6 +2,21 @@
 <!-- Full Case Study Page -->
 
 <div class="case-study-full">
+    <!-- IE Navigation Bar -->
+    <div class="ie-toolbar">
+        <div class="toolbar-buttons">
+            <button class="ie-btn" onclick="navigateBack()">← Back</button>
+            <button class="ie-btn disabled">Forward →</button>
+            <button class="ie-btn disabled">Stop</button>
+            <button class="ie-btn disabled">Refresh</button>
+            <button class="ie-btn disabled">Home</button>
+        </div>
+        <div class="address-bar">
+            <span class="address-label">Address:</span>
+            <input type="text" value="ellieOS://projects/ellieOS" readonly>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <div class="case-study-hero">
         <div class="hero-content">
@@ -18,19 +33,23 @@
     <!-- Content with TOC -->
     <div class="case-study-with-toc">
         <!-- Table of Contents -->
-        <aside class="toc-container">
-            <div class="toc-title">Contents</div>
-            <ul class="toc-list" id="case-study-toc">
-                <li class="toc-item"><a href="#overview" class="toc-link">Overview</a></li>
-                <li class="toc-item"><a href="#problem" class="toc-link">Problem Statement</a></li>
-                <li class="toc-item"><a href="#research" class="toc-link">Research</a></li>
-                <li class="toc-item"><a href="#process" class="toc-link">Design Process</a></li>
-                <li class="toc-item"><a href="#features" class="toc-link">Key Features</a></li>
-                <li class="toc-item"><a href="#challenges" class="toc-link">Challenges</a></li>
-                <li class="toc-item"><a href="#results" class="toc-link">Results</a></li>
-                <li class="toc-item"><a href="#reflection" class="toc-link">Reflection</a></li>
-                <li class="toc-item"><a href="#conclusion" class="toc-link">Final Thoughts</a></li>
-            </ul>
+        <aside class="toc-sidebar">
+            <div class="toc-container">
+                <div class="toc-title">Contents</div>
+                <ul class="toc-list" id="case-study-toc">
+                    <li class="toc-item"><a href="#overview" class="toc-link">Overview</a></li>
+                    <li class="toc-item"><a href="#problem" class="toc-link">Problem Statement</a></li>
+                    <li class="toc-item"><a href="#research" class="toc-link">Research</a></li>
+                    <li class="toc-item"><a href="#process" class="toc-link">Design Process</a></li>
+                    <li class="toc-item"><a href="#features" class="toc-link">Key Features</a></li>
+                    <li class="toc-item"><a href="#challenges" class="toc-link">Challenges</a></li>
+                    <li class="toc-item"><a href="#results" class="toc-link">Results</a></li>
+                    <li class="toc-item"><a href="#reflection" class="toc-link">Reflection</a></li>
+                    <li class="toc-item"><a href="#conclusion" class="toc-link">Final Thoughts</a></li>
+                </ul>
+            </div>
+            <!-- Back to Top Button -->
+            <div class="back-to-top" onclick="scrollToTop()"></div>
         </aside>
 
         <!-- Main Content -->
@@ -308,12 +327,74 @@
             </div>
         </div>
     </div>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" onclick="scrollToTop()"></div>
 </div>
 
 <style>
+.ie-toolbar {
+    background: linear-gradient(to bottom, #efefef, #dfdfdf);
+    padding: 4px;
+    border-bottom: 2px solid;
+    border-color: var(--gray-light) var(--gray-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.toolbar-buttons {
+    display: flex;
+    gap: 2px;
+}
+
+.ie-btn {
+    padding: 4px 8px;
+    background: linear-gradient(135deg, var(--gray-light), var(--secondary-base));
+    border: 2px solid;
+    border-color: var(--gray-light) var(--gray-darkest) var(--gray-darkest) var(--gray-light);
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    user-select: none;
+}
+
+.ie-btn:hover:not(.disabled) {
+    background: linear-gradient(135deg, var(--highlight-blue), var(--highlight-light-blue));
+    color: white;
+}
+
+.ie-btn:active:not(.disabled) {
+    border-color: var(--gray-darkest) var(--gray-light) var(--gray-light) var(--gray-darkest);
+}
+
+.ie-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.address-bar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 4px;
+}
+
+.address-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--gray-darkest);
+    white-space: nowrap;
+}
+
+.address-bar input {
+    flex: 1;
+    padding: 4px 6px;
+    border: 2px inset;
+    border-color: var(--gray-dark) var(--gray-light);
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    font-size: 14px;
+    background: white;
+    color: var(--gray-darkest);
+}
+
 .case-study-full {
     width: 100%;
     height: 100%;
@@ -655,4 +736,13 @@ function scrollToTop() {
 
 // Initialize on load
 setTimeout(initTOC, 100);
+
+// Navigation function
+function navigateBack() {
+    if (window.history && window.history.length > 1) {
+        // Trigger the back navigation in the window manager
+        const event = new CustomEvent('navigateBack');
+        window.dispatchEvent(event);
+    }
+}
 </script>

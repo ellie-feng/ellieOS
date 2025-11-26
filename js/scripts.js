@@ -476,15 +476,18 @@ Enjoy exploring!`;
         const projectsWindow = this.windows.find(w => w.page === 'projects');
         if (projectsWindow) {
             const contentDiv = projectsWindow.element.querySelector('.window-content');
+            
+            // Initialize navigation history
+            if (!projectsWindow.element.navHistory) {
+                projectsWindow.element.navHistory = ['projects'];
+            } else {
+                projectsWindow.element.navHistory.push('projects');
+            }
+            
             fetch(`html/${studyId}.html`)
                 .then(response => response.text())
                 .then(html => {
                     contentDiv.innerHTML = html;
-                    // Store navigation history
-                    if (!projectsWindow.element.navHistory) {
-                        projectsWindow.element.navHistory = [];
-                    }
-                    projectsWindow.element.navHistory.push('projects');
                     projectsWindow.element.currentPage = studyId;
                     this.setupCaseStudyNav(projectsWindow.element);
                 })
@@ -495,22 +498,21 @@ Enjoy exploring!`;
     }
 
     setupCaseStudyNav(windowEl) {
-        // Setup back button in IE toolbar
-        const backBtn = windowEl.querySelector('.toolbar-buttons .ie-btn:first-child');
-        if (backBtn) {
-            backBtn.onclick = () => {
-                if (windowEl.navHistory && windowEl.navHistory.length > 0) {
-                    const previousPage = windowEl.navHistory.pop();
-                    const contentDiv = windowEl.querySelector('.window-content');
-                    fetch(`html/${previousPage}.html`)
-                        .then(response => response.text())
-                        .then(html => {
-                            contentDiv.innerHTML = html;
-                            windowEl.currentPage = previousPage;
-                        });
-                }
-            };
-        }
+        // Listen for back navigation event
+        const handleNavigateBack = () => {
+            if (windowEl.navHistory && windowEl.navHistory.length > 0) {
+                const previousPage = windowEl.navHistory.pop();
+                const contentDiv = windowEl.querySelector('.window-content');
+                fetch(`html/${previousPage}.html`)
+                    .then(response => response.text())
+                    .then(html => {
+                        contentDiv.innerHTML = html;
+                        windowEl.currentPage = previousPage;
+                    });
+            }
+        };
+        
+        window.addEventListener('navigateBack', handleNavigateBack);
     }
 }
 
