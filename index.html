@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ellieOS - Welcome</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Background -->
+        <div class="wallpaper"></div>
+
+        <!-- Desktop Icons (Left sidebar) -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" draggable="false">
+                <div class="icon-img">📁</div>
+                <div class="icon-label">My Docs</div>
+            </div>
+            <div class="desktop-icon" draggable="false">
+                <div class="icon-img">💾</div>
+                <div class="icon-label">Archive</div>
+            </div>
+            <div class="desktop-icon" draggable="false">
+                <div class="icon-img">🎵</div>
+                <div class="icon-label">Music</div>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container"></div>
+
+        <!-- Taskbar/Dock at bottom -->
+        <div class="taskbar">
+            <div class="taskbar-start">
+                <button class="start-button">Start</button>
+            </div>
+            <div class="taskbar-apps">
+                <button class="taskbar-item active" data-page="index">
+                    <span class="taskbar-icon">🏠</span>
+                    <span class="taskbar-label">Home</span>
+                </button>
+                <button class="taskbar-item" data-page="projects">
+                    <span class="taskbar-icon">💼</span>
+                    <span class="taskbar-label">Projects</span>
+                </button>
+                <button class="taskbar-item" data-page="blog">
+                    <span class="taskbar-icon">📝</span>
+                    <span class="taskbar-label">Blog</span>
+                </button>
+                <button class="taskbar-item" data-page="contact">
+                    <span class="taskbar-icon">📇</span>
+                    <span class="taskbar-label">Contact</span>
+                </button>
+            </div>
+            <div class="taskbar-tray">
+                <div class="tray-clock" id="clock">12:00</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Window Templates (hidden by default) -->
+    <template id="window-template">
+        <div class="window" style="resize: both;">
+            <div class="window-titlebar">
+                <div class="window-title"></div>
+                <div class="window-controls">
+                    <button class="window-btn minimize-btn" title="Minimize">_</button>
+                    <button class="window-btn maximize-btn" title="Maximize">□</button>
+                    <button class="window-btn close-btn" title="Close">×</button>
+                </div>
+            </div>
+            <div class="window-content"></div>
+        </div>
+    </template>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

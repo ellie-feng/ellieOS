@@ -1,0 +1,58 @@
+<!-- html/contact.html -->
+<!-- This file is loaded as partial content into a window -->
+<!-- The window manager handles the notepad styling -->
+
+<pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 12px; color: var(--gray-darkest); line-height: 1.6; white-space: pre-wrap; word-wrap: break-word;">
+<card>
+    <n> Ellie Feng </n>
+    <title> UX Designer </title>
+    <email> ellief5288@gmail.com </email>
+    <url> ellieOS.dev </url>
+</card>
+</pre>
+
+<div style="margin-top: 12px;">
+    <button class="notepad-copy-btn" onclick="copyContact()">📋 Copy</button>
+</div>
+
+<style>
+.notepad-copy-btn {
+    padding: 6px 12px;
+    background: linear-gradient(135deg, var(--highlight-blue), var(--highlight-light-blue));
+    border: 2px solid;
+    border-color: var(--gray-light) var(--gray-darkest) var(--gray-darkest) var(--gray-light);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    transition: all 0.1s;
+}
+
+.notepad-copy-btn:hover {
+    background: linear-gradient(135deg, var(--highlight-light-blue), var(--highlight-blue));
+}
+
+.notepad-copy-btn:active {
+    border-color: var(--gray-darkest) var(--gray-light) var(--gray-light) var(--gray-darkest);
+}
+</style>
+
+<script>
+function copyContact() {
+    const html = `<card>
+    <n> Ellie Feng </n>
+    <title> UX Designer </title>
+    <email> ellief5288@gmail.com </email>
+    <url> ellieOS.dev </url>
+</card>`;
+    
+    navigator.clipboard.writeText(html).then(() => {
+        const btn = event.target;
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => {
+            btn.textContent = '📋 Copy';
+        }, 2000);
+    });
+}
+</script>

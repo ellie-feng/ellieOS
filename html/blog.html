@@ -1,0 +1,47 @@
+<!-- html/blog.html -->
+<!-- This file loads as partial content into an 80% sized IE-styled window -->
+
+<div class="ie-toolbar">
+    <div class="toolbar-buttons">
+        <button class="ie-btn">← Back</button>
+        <button class="ie-btn">Forward →</button>
+        <button class="ie-btn">Stop</button>
+        <button class="ie-btn">Refresh</button>
+        <button class="ie-btn">Home</button>
+    </div>
+    <div class="address-bar">
+        <span class="address-label">Address:</span>
+        <input type="text" value="ellieOS://blog/index.html" readonly>
+    </div>
+</div>
+
+<div class="blog-content">
+    <div class="blog-header">
+        <h1>ellie's blog</h1>
+        <p class="blog-subtitle">a space where i write things i'm hyperfixating on</p>
+    </div>
+
+    <div class="blog-grid">
+        <article class="blog-card" onclick="openBlogPost('dumbphone')">
+            <div class="card-image" style="background-image: url('../media/nokia_3210_4g.jpeg'); background-size: cover; background-position: center; font-size: 0;"></div>
+            <div class="card-content">
+                <div class="card-date">November 2024</div>
+                <h2>My Dumbphone Did NOT Cure My Smartphone Addiction</h2>
+                <p>A deep dive into digital minimalism, behavioural addiction, and why switching to a dumbphone wasn't the magic solution I thought it would be.</p>
+                <a href="#" class="read-more">read more →</a>
+            </div>
+        </article>
+    </div>
+</div>
+
+<div class="ie-status">
+    <span>Ready</span>
+</div>
+
+<!-- Blog Post Modal -->
+<div id="blog-modal" class="blog-modal">
+    <div class="blog-modal-content">
+        <button class="blog-close-btn" onclick="closeBlogPost()">× Close</button>
+        <div id="blog-post-content"></div>
+    </div>
+</div>
