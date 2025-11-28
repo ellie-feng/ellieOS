@@ -1,12 +1,6 @@
 <!-- html/blog.html -->
 <!-- This file loads as partial content into an 80% sized IE-styled window -->
 
-<head>
- <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js"></script>
-</head>
-
-
 <div class="ie-toolbar">
     <div class="toolbar-buttons">
         <button class="ie-btn">← Back</button>
@@ -29,7 +23,7 @@
 
     <div class="blog-grid">
         <article class="blog-card" onclick="openBlogPost('dumbphone')">
-            <div class="card-image" style="background-image: url('media/nokia_3210_4g.jpeg'); background-size: cover; background-position: center; font-size: 0;"></div>
+            <div class="card-image" style="background-image: url('../media/nokia_3210_4g.jpeg'); background-size: cover; background-position: center; font-size: 0;"></div>
             <div class="card-content">
                 <div class="card-date">November 2024</div>
                 <h2>My Dumbphone Did NOT Cure My Smartphone Addiction</h2>
@@ -40,11 +34,6 @@
     </div>
 </div>
 
-
-<!-- Blog Post Modal -->
-<div id="blog-modal" class="blog-modal">
-    <div class="blog-modal-content">
-        <button class="blog-close-btn" onclick="closeBlogPost()">× Close</button>
-        <div id="blog-post-content"></div>
-    </div>
+<div class="ie-status">
+    <span>Ready</span>
 </div>
