@@ -1,9 +1,5 @@
 <!-- html/projects.html -->
 <!-- UX Case Studies Layout -->
-<head>
- <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js"></script>
-</head>
 
 <div class="projects-page">
     <div class="explorer-toolbar">
@@ -22,8 +18,9 @@
             <!-- ellieOS Project -->
             <article class="case-study-card">
                 <div class="case-study-header">
-                    
-<div class="case-study-image" style="background-image: url('media/ellieOS.jpg'); background-size: cover; background-position: center;"> </div>
+                    <div class="case-study-image" style="background: linear-gradient(135deg, #7AB8FF, #8FD18E); display: flex; align-items: center; justify-content: center; font-size: 48px;">
+                        💻
+                    </div>
                     <div class="case-study-meta">
                         <h3>ellieOS - Portfolio as an Operating System</h3>
                         <div class="case-study-tags">
@@ -32,9 +29,7 @@
                             <span class="tag">Web Development</span>
                             <span class="tag">Personal Branding</span>
                         </div>
-                        <p style="margin-top: 12px; font-size: 14px; color: var(--gray-dark);">
-                            Duration: 2 weeks | Role: Solo Designer & Developer
-                        </p>
+                        <p>Duration: 2 weeks | Role: Solo Designer & Developer</p>
                     </div>
                 </div>
                 
@@ -72,3 +67,191 @@
     </div>
 </div>
 
+<style>
+.projects-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--base);
+}
+
+.explorer-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: linear-gradient(to right, var(--secondary-base), var(--gray-medium));
+    border-bottom: 2px solid;
+    border-color: var(--gray-light) var(--gray-dark);
+}
+
+.toolbar-btn {
+    padding: 4px 8px;
+    background: linear-gradient(135deg, var(--gray-light), var(--secondary-base));
+    border: 2px solid;
+    border-color: var(--gray-light) var(--gray-darkest) var(--gray-darkest) var(--gray-light);
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+}
+
+.toolbar-btn:hover {
+    background: linear-gradient(135deg, var(--highlight-blue), var(--highlight-light-blue));
+    color: white;
+}
+
+.toolbar-btn:active {
+    border-color: var(--gray-darkest) var(--gray-light) var(--gray-light) var(--gray-darkest);
+}
+
+.address-bar {
+    flex: 1;
+    background: white;
+    padding: 4px 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    border: 2px inset;
+    border-color: var(--gray-dark) var(--gray-light);
+    color: var(--gray-darkest);
+}
+
+.projects-content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    background: linear-gradient(135deg, rgba(122, 184, 255, 0.05), rgba(143, 209, 142, 0.05));
+}
+
+.projects-intro {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed var(--gray-medium);
+}
+
+.projects-intro h2 {
+    font-size: 24px;
+    color: var(--gray-darkest);
+    margin: 0 0 8px 0;
+}
+
+.projects-intro p {
+    font-size: 15px;
+    color: var(--gray-dark);
+    margin: 0;
+}
+
+/* Case Study Layout */
+.case-study-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.case-study-card {
+    background: white;
+    border: 3px solid var(--gray-medium);
+    padding: 0;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.case-study-card:hover {
+    border-color: var(--highlight-blue);
+    box-shadow: 4px 4px 0 rgba(122, 184, 255, 0.3);
+}
+
+.case-study-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(122, 184, 255, 0.1), rgba(143, 209, 142, 0.1));
+    border-bottom: 2px solid var(--gray-medium);
+}
+
+.case-study-image {
+    width: 100%;
+    height: 200px;
+    background: var(--gray-light);
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--gray-medium);
+}
+
+.case-study-meta h3 {
+    font-size: 22px;
+    color: var(--gray-darkest);
+    margin: 0 0 12px 0;
+}
+
+.case-study-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: var(--highlight-blue);
+    color: white;
+    padding: 4px 12px;
+    font-size: 14px;
+    border: 2px solid var(--highlight-light-blue);
+    font-weight: bold;
+}
+
+.case-study-body {
+    padding: 20px;
+}
+
+.case-study-section {
+    margin-bottom: 20px;
+}
+
+.case-study-section h4 {
+    font-size: 16px;
+    color: var(--highlight-blue);
+    margin: 0 0 8px 0;
+    font-weight: bold;
+}
+
+.case-study-section p {
+    font-size: 15px;
+    color: var(--gray-darkest);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.case-study-actions {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px dashed var(--gray-medium);
+}
+
+.action-btn {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--highlight-blue), var(--highlight-light-blue));
+    border: 2px solid;
+    border-color: var(--gray-light) var(--gray-darkest) var(--gray-darkest) var(--gray-light);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+}
+
+.action-btn:hover {
+    background: linear-gradient(135deg, var(--highlight-light-blue), var(--highlight-blue));
+}
+
+.action-btn:active {
+    border-color: var(--gray-darkest) var(--gray-light) var(--gray-light) var(--gray-darkest);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .case-study-header {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
