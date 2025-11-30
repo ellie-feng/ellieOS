@@ -516,43 +516,41 @@ Interests: Ricing, F1, Keyboards, Design`,
                 blogWindow.element.navHistory.push('blog');
             }
             
-            const postHTML = this.getBlogPostContent(postId);
-            contentDiv.innerHTML = postHTML;
-            blogWindow.element.currentPage = `blog-${postId}`;
+            // Fetch the actual blog post HTML file
+            fetch(`html/${postId}.html`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to load blog post');
+                    return response.text();
+                })
+                .then(html => {
+                    // Extract only the content inside the blog-page div, excluding the outer HTML structure
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const blogContent = doc.querySelector('.blog-page');
+                    
+                    if (blogContent) {
+                        contentDiv.innerHTML = blogContent.innerHTML;
+                        // Update the back button to work with navigateBackBlog
+                        const backBtn = contentDiv.querySelector('.ie-toolbar .ie-btn');
+                        if (backBtn && backBtn.textContent.includes('Back')) {
+                            backBtn.setAttribute('onclick', '');
+                            backBtn.addEventListener('click', () => {
+                                window.navigateBackBlog();
+                            });
+                        }
+                    } else {
+                        // Fallback: use the entire body content
+                        const bodyContent = doc.body.innerHTML;
+                        contentDiv.innerHTML = bodyContent;
+                    }
+                    
+                    blogWindow.element.currentPage = `blog-${postId}`;
+                })
+                .catch(err => {
+                    console.error('Error loading blog post:', err);
+                    contentDiv.innerHTML = `<p>Error loading blog post: ${err.message}</p>`;
+                });
         }
-    }
-
-    getBlogPostContent(postId) {
-        const posts = {
-            'dumbphone': `<div class="ie-toolbar">
-    <div class="toolbar-buttons">
-        <button class="ie-btn" onclick="navigateBackBlog()">← Back</button>
-        <button class="ie-btn disabled">Forward →</button>
-        <button class="ie-btn disabled">Stop</button>
-        <button class="ie-btn disabled">Refresh</button>
-        <button class="ie-btn disabled">Home</button>
-    </div>
-    <div class="address-bar">
-        <span class="address-label">Address:</span>
-        <input type="text" value="ellieOS://blog/dumbphone" readonly>
-    </div>
-</div>
-<div style="padding: 24px; font-size: 16px; line-height: 1.8;">
-    <h1 style="color: var(--highlight-blue); margin-bottom: 8px; font-size: 28px;">today i realised that my dumbphone did NOT cure my smartphone addiction</h1>
-    <p style="color: var(--gray-dark); font-size: 15px; margin-bottom: 20px;">by ellie | 21.11.24</p>
-    
-    <p style="margin-bottom: 16px;">Test content - this should show up. If you see this, the blog post is loading correctly.</p>
-    
-    <div style="text-align: center; margin: 20px 0;">
-        <img src="media/nokia_3210_4g.jpeg" alt="nokia 3210 4g" style="max-width: 300px; height: auto; border: 2px solid var(--gray-medium);">
-        <p style="font-size: 15px; color: var(--gray-dark); margin-top: 8px;">nokia 3210 4g</p>
-    </div>
-    
-    <p style="text-align: right; font-style: italic; margin-top: 20px; font-size: 16px;">-ellie 21.11.24</p>
-</div>`
-        };
-        
-        return posts[postId] || '<p>Post not found.</p>';
     }
 }
 
